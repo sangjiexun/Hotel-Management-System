@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Room Occupation List</h1>
+    <p>Date: {{ date }}</p>
+    
+    {% if meetings %}
+        <table>
+            <tr>
+                <th>Meeting Title</th>
+                <th>Room</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Booker</th>
+                <th>Team</th>
+            </tr>
+            {% for meeting in meetings %}
+            <tr>
+                <td>{{ meeting.title }}</td>
+                <td>{{ meeting.room.roomName }}</td>
+                <td>{{ meeting.startTime }}:00</td>
+                <td>{{ meeting.endTime }}:00</td>
+                <td>{{ meeting.booker.username }}</td>
+                <td>{{ meeting.team.teamName }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No meetings scheduled for this date.</p>
+    {% endif %}
+    
+    <p><a href="{{ url_for('roomoccupation') }}">Check another date</a></p>
+{% endblock %}
