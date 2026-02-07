@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to Hotel Management System</h1>
+    <p>Hello, {{ current_user.username }}!</p>
+    
+    <h2>Main Menu</h2>
+    <ul>
+        <li><a href="{{ url_for('book') }}">Book Meeting Room</a></li>
+        <li><a href="{{ url_for('roomavailable') }}">Check Room Availability</a></li>
+        <li><a href="{{ url_for('roomoccupation') }}">Check Room Occupation</a></li>
+        <li><a href="{{ url_for('costs') }}">Cost Management</a></li>
+        <li><a href="{{ url_for('allrecords') }}">All Meeting Records</a></li>
+        <li><a href="{{ url_for('addteam') }}">Add Team</a></li>
+        <li><a href="{{ url_for('adduser') }}">Add User</a></li>
+        <li><a href="{{ url_for('deleteteam') }}">Delete Team</a></li>
+        <li><a href="{{ url_for('deleteuser') }}">Delete User</a></li>
+        <li><a href="{{ url_for('cancelbooking') }}">Cancel Booking</a></li>
+    </ul>
+{% endblock %}
