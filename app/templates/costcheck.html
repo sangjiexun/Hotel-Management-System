@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Cost Check</h1>
+    <p>Period: {{ start_date }} to {{ end_date }}</p>
+    <p>Total Cost: {{ total_cost }}</p>
+    
+    {% if cost_logs %}
+        <table>
+            <tr>
+                <th>Meeting Title</th>
+                <th>Team</th>
+                <th>Date</th>
+                <th>Cost</th>
+            </tr>
+            {% for log in cost_logs %}
+            <tr>
+                <td>{{ log.title }}</td>
+                <td>{{ log.teamName }}</td>
+                <td>{{ log.date.strftime('%Y-%m-%d') }}</td>
+                <td>{{ log.cost }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No cost logs for the selected period.</p>
+    {% endif %}
+    
+    <p><a href="{{ url_for('costs') }}">Check another period</a></p>
+{% endblock %}
