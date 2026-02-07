@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Check Room Availability</h1>
+    <form action="{{ url_for('roomavailablelist') }}" method="post">
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" name="date" required>
+        </div>
+        <div class="form-group">
+            <label for="start_time">Start Time (24h format)</label>
+            <input type="number" name="start_time" min="0" max="23" required>
+        </div>
+        <div class="form-group">
+            <label for="end_time">End Time (24h format)</label>
+            <input type="number" name="end_time" min="1" max="24" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Check Availability">
+        </div>
+    </form>
+{% endblock %}
